@@ -28,9 +28,7 @@
   },
   "description": "Group Project",
   "main": "server.js",
-  "author": "Team Mighty-Max",
-  "license": "ISC",
-  "devDependencies": {
+  "author": "xvDependencies": {
     "@types/body-parser": "^1.17.0",
     "@types/connect-flash": "0.0.34",
     "@types/cookie-parser": "^1.4.1",

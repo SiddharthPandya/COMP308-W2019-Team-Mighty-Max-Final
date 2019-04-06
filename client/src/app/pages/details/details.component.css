@@ -1,7 +1,7 @@
 header {
   padding-top: 15rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url("/assets/images/details-page-img.png");
+  background-image: url("../../../assets/images/details-page-img.png");
   background-position: center center;
   background-size: cover;
 }
