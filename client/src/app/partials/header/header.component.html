@@ -1,36 +1,60 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  
-  <a class="navbar-brand" routerLink="/">Mighty Max Surveys</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" routerLink="/"
+    ><img src="../../../assets/images/teamlogo.jpg" alt="team-logo " /> Mighty
+    Max Surveys</a
+  >
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/"><i class="fas fa-lg fa-home" aria-hidden="true"></i> Home<span
-            class="sr-only"></span>
+        <a class="nav-link" routerLink="/"
+          ><i class="fas fa-lg fa-home" aria-hidden="true"></i> Home<span
+            class="sr-only"
+          ></span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/about"><i class="far fa-lg fa-newspaper" aria-hidden="true"></i> About</a>
+        <a class="nav-link" routerLink="/about"
+          ><i class="far fa-lg fa-newspaper" aria-hidden="true"></i> About</a
+        >
+      </li>
 
       <li class="nav-item">
-        <a class="nav-link" routerLink="/details"><i class="fas fa-lg fa-info-circle" aria-hidden="true"></i>
-          Details</a>
+        <a class="nav-link" routerLink="/details"
+          ><i class="fas fa-lg fa-info-circle" aria-hidden="true"></i>
+          Details</a
+        >
+      </li>
 
+      <li
+        *ngIf="isLoggedIn()"
+        class="navbar-text text-success ml-5 mr-5 d-none d-lg-inline"
+      >
+        <i class="fas fa-lg fa-user"></i> Welcome, {{ user.displayName }}
+      </li>
 
-      <li *ngIf="isLoggedIn()" class="navbar-text text-success ml-5 mr-5 d-none d-lg-inline"><i
-          class="fas fa-lg fa-user"></i>
-        Welcome, {{ user.displayName }}</li>
+      <li *ngIf="isLoggedIn()" class="nav-item">
+        <a (click)="onLogoutClick()" routerLink="/logout" class="nav-link">
+          <i class="fas fa-lg fa-arrow-left" aria-hidden="true"></i> Logout</a
+        >
+      </li>
 
-      <li *ngIf="isLoggedIn()" class="nav-item"><a (click)="onLogoutClick()" routerLink="/logout" class="nav-link">
-          <i class="fas fa-lg fa-arrow-left" aria-hidden="true"></i> Logout</a></li>
-
-      <li *ngIf="!isLoggedIn()" class="nav-item"><a routerLink="/login" class="nav-link">
-          <i class="fas fa-lg fa-arrow-right" aria-hidden="true"></i> Login</a></li>
-
+      <li *ngIf="!isLoggedIn()" class="nav-item">
+        <a routerLink="/login" class="nav-link">
+          <i class="fas fa-lg fa-arrow-right" aria-hidden="true"></i> Login</a
+        >
+      </li>
     </ul>
   </div>
 </nav>
