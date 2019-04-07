@@ -1,7 +1,11 @@
 header {
   padding-top: 9rem;
-  padding-bottom: calc(10rem - 56px);
+  padding-bottom: calc(20rem - 56px);
   background-image: url("../../../assets/images/details-page-img1.png");
   background-position: center;
-  background-size: cover;
+  background-size: cover cover;
+}
+body {
+  margin: 0;
+  background-color: #fff;
 }
