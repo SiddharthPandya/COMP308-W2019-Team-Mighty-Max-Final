@@ -1,35 +1,53 @@
 <main class="container">
   <div class="row">
     <div class="col-md-offset-4 col-md-4">
-      <br>
+      <br />
       <div class="card">
-        <div class="card-header">
-          <h1>Please Login</h1>
-        </div>
-        <div class="card-body">
-          <form autocomplete="off" (submit)="onLoginSubmit()">
+        <form autocomplete="off" (submit)="onLoginSubmit()">
+          <div class="card-header">
+            <h1>Please Login</h1>
+          </div>
+          <div class="card-body">
             <fieldset class="form-group">
               <label for="username">Username:</label>
-              <input type="text" class="form-control" [(ngModel)]="user.username" name="username"
-                placeholder="Enter Username" id="username" required autofocus autocomplete="off">
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="user.username"
+                name="username"
+                placeholder="Enter Username"
+                id="username"
+                required
+                autofocus
+                autocomplete="off"
+              />
             </fieldset>
             <fieldset class="form-group">
               <label for="password">Password:</label>
-              <input type="password" class="form-control" [(ngModel)]="user.password" name="password"
-                placeholder="Enter Password" id="password" required autocomplete="off">
+              <input
+                type="password"
+                class="form-control"
+                [(ngModel)]="user.password"
+                name="password"
+                placeholder="Enter Password"
+                id="password"
+                required
+                autocomplete="off"
+              />
               or
               <a routerLink="/register">Register Here</a>
             </fieldset>
-          </form>
-        </div>
-        <div class="card-footer">
-          <fieldset class="form-group text-right">
-            <input type="submit" class="btn btn-primary" value="Login">
-            <a routerLink="/home">&nbsp;
-              <input type="button" class="btn btn-info" value="Cancel">
-            </a>
-          </fieldset>
-        </div>
+          </div>
+          <div class="card-footer">
+            <fieldset class="form-group text-right">
+              <input type="submit" class="btn btn-primary" value="Login" />
+              <a routerLink="/home"
+                >&nbsp;
+                <input type="button" class="btn btn-info" value="Cancel" />
+              </a>
+            </fieldset>
+          </div>
+        </form>
       </div>
     </div>
   </div>
