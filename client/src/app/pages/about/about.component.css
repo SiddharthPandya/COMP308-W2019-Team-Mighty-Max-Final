@@ -1,0 +1,13 @@
+.container {
+  padding-top: 20px;
+  margin-bottom: 100px;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px rgb(192, 192, 192);
+}
+
+.card:hover .card-img-top {
+  opacity: 0.3;
+}
