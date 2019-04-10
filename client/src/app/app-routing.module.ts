@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { DetailsComponent } from './pages/details/details.component';
+import {SurveySiteComponent} from './pages/survey-site/survey-site.component'
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
 import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent, data: {title: 'Home'}},
   {path: 'about', component: AboutComponent, data: {title: 'About'}},
   {path: 'details', component: DetailsComponent, data: {title: 'Details'}},
+  {path: 'survey-site', component: SurveySiteComponent, data: {title: 'Survey-site'}, canActivate: [AuthGuard]},
 
   {path: 'contact/contact-list', component: ContactListComponent, data: {title: 'Contact List'}, canActivate: [AuthGuard]},
   {path: 'contact/contact-list/add', component: ContactDetailsComponent, data: {title: 'Add Contact'}, canActivate: [AuthGuard]},
