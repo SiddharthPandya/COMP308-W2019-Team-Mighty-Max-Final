@@ -12,8 +12,13 @@ router.get('/about', function(req, res, next) {
 });
 
 /* GET products page. */
-router.get('/products', function(req, res, next) {
-  res.render('index', { title: 'Products' });
+router.get('/details', function(req, res, next) {
+  res.render('index', { title: 'Details' });
+});
+
+/* GET survey-site page. */
+router.get('/survey-site', function(req, res, next) {
+  res.render('index', { title: 'SurveySite' });
 });
 
 /* GET services page. */
