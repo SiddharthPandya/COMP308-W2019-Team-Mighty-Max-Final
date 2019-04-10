@@ -13,6 +13,7 @@ import { BasePageComponent } from './partials/base-page/base-page.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { DetailsComponent } from './pages/details/details.component';
+import {SurveySiteComponent} from './pages/survey-site/survey-site.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
 import { RegisterComponent } from './pages/register/register.component';
@@ -27,6 +28,7 @@ import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt'
 
 // Route Guards
 import { AuthGuard } from './guards/auth.guard';
+//import { SurveySiteComponent } from './pages/survey-site/survey-site.component';
 //import { DetailsComponent } from './pages/details/details.component';
 
 export function jwtTokenGetter() {
@@ -47,7 +49,8 @@ export function jwtTokenGetter() {
     LoginComponent,
     ContactDetailsComponent,
     ContactDeleteComponent,
-    DetailsComponent
+    DetailsComponent,
+    SurveySiteComponent
   ],
   imports: [
     BrowserModule,
