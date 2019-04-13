@@ -28,11 +28,11 @@ mongoose.connect(DB.URI, { useNewUrlParser: true });
 let mongoDB = mongoose.connection;
 mongoDB.on('error', console.error.bind(console, 'Connection Error:'));
 mongoDB.once('open', ()=> {
-  console.log("Connected to MongoDB...");
+  console.log("Connected...");
 });
 
 let indexRouter = require('../routes/index');
-let contactRouter = require('../routes/contact');
+let surveyRouter = require('../routes/survey');
 
 
 let app = express();
@@ -46,7 +46,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public')));
-app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 app.use(cors());
 
@@ -64,31 +63,31 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-// pasport user configuration
+// passport user configuration
 
 // create a User model
 let userModel = require('../models/user');
 let User = userModel.User;
 
-// implement a User authetication strategy
+// implement a User authentication strategy
 passport.use(User.createStrategy());
 
 // serialize and deserialize the User info
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// this part verfies that the token is being sent by the user and is valid
+// this part verifies that the token is being sent by the user and is valid
 let jwtOptions = {};
 jwtOptions.jwtFromRequest = ExtractJWT.fromAuthHeaderAsBearerToken();
 jwtOptions.secretOrKey = DB.secret;
 
-let strategy = new JWTStrategy(jwtOptions, (jwt_payload, done) => {
+let strategy = new JWTStrategy(jwtOptions, (jwt_payload, verified) => {
   User.findById(jwt_payload.id)
     .then(user => {
-      return done(null, user);
+      return verified(null, user);
     })
     .catch(err => {
-      return done(err, false);
+      return verified(err, false);
     });
 });
 
@@ -96,18 +95,18 @@ passport.use(strategy);
 
 
 app.use('/api', indexRouter);
-app.use('/api/contact-list', passport.authenticate('jwt', {session: false}), contactRouter); 
+app.use('/api/surveys' /*passport.authenticate('jwt', {session: false})*/, surveyRouter); 
 app.get('*', (req, res) => {
-  res.sendfile(path.join(__dirname, '../../public/index.html'));
+  res.sendFile(path.join(__dirname, '../../public/index.html'));
 });
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
