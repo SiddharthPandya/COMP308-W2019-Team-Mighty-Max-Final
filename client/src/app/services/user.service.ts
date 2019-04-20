@@ -10,7 +10,8 @@ export class UserService {
   private user: User;
   private authToken: any = null;
 
-  private endpoint = 'http://localhost:3000/api/profile/';
+   private endpoint = 'https://mighty-max.herokuapp.com/api/profile/';
+  //private endpoint = 'http://localhost:3000/api/profile/';
 
   private httpOptions = {
     headers: new HttpHeaders({
