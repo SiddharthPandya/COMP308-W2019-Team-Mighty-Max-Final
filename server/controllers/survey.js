@@ -22,7 +22,7 @@ module.exports.processSurveyAddPage = (req, res, next) => {
         "question5": req.body.question5,
         "question6": req.body.question6,
         "peopleTaken": 0,
-        "users_id": req.body.userid
+        //"users_id": req.body.userid
     });
 
     surveyModel.create(newSurvey, (err, surveyModel) => {

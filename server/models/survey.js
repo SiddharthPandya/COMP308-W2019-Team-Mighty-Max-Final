@@ -9,8 +9,8 @@ let surveySchema = mongoose.Schema({
     question4: String,
     question5: String,
     question6: String,
-    peopleTaken: Number,
-    users_id: String
+    peopleTaken: Number
+    //users_id: String
 },
 {
     collection: "surveys"
