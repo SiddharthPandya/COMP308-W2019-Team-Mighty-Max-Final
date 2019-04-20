@@ -6,7 +6,8 @@ let surveyAnswersSchema = mongoose.Schema({
     answer3: String,
     answer4: String,
     answer5: String,
-    answer6: String
+    answer6: String,
+    peopleTaken: Number
 },
 {
     collection: "surveyAnswers"

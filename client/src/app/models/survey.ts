@@ -10,4 +10,5 @@ export class Survey {
     question5: string;
     question6: string;
     peopleTaken: number;
+    users_id: string;
 }

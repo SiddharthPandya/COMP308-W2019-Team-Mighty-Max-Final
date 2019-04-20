@@ -43,6 +43,7 @@ export class SurveyComponent implements OnInit {
     this.surveyService.collectSurveyAnswers(this.surveyAnswers).subscribe(content => {
       if (content.success) {
          console.log(content);
+         console.log(this.survey.peopleTaken)
          this.flashMessage.show(content.msg, {cssClass: 'alert-success', timeOut: 5000});
          this.router.navigate(['/home']);
        } else {
@@ -50,6 +51,14 @@ export class SurveyComponent implements OnInit {
          this.router.navigate(['/home']);
        }
     });
+    /*this.surveyService.collectSurveyCounter(this.survey).subscribe(content => {
+      if (content.success) {
+         console.log(content);
+         this.flashMessage.show(content.msg, {cssClass: 'alert-success', timeOut: 5000});
+       } else {
+         this.flashMessage.show('Unable to collect answers', {cssClass: 'alert-danger', timeOut: 5000});
+       }
+    });*/
   }
 
 }

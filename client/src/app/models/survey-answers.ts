@@ -5,4 +5,5 @@ export class SurveyAnswers {
   answer4: string;
   answer5: string;
   answer6: string;
+  peopleTaken:number;
 }
