@@ -13,7 +13,7 @@ import { User } from '../models/user';
 export class SurveyService {
   private authToken: any = null;
 
-  private endpoint = 'https://mighty-max.herokuapp.com/api/surveys';
+  private endpoint = 'https://mighty-max.herokuapp.com/api/surveys/';
   //private endpoint = 'http://localhost:3000/api/surveys';
 
   private httpOptions = {
